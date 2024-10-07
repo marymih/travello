@@ -1,40 +1,74 @@
 a {
   text-decoration: none;
+
   &:hover {
     text-decoration: underline;
   }
 }
+
+li {
+  list-style: none;
+}
+
+h1 {
+  @include text-styles(144px, 400, $white-color);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h2 {
+  @include text-styles(36px, 400, $white-color);
+  text-transform: uppercase;
+  letter-spacing: 7px;
+}
+
 .container {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 20px;
 }
+
+.bg-container {
+  background-image: url("../../assets/img/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 1520px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .header {
-  &-top {
-    height: 70px;
-    background-color: $black-color;
-    color: #fff;
-    padding: 20px 0;
-  }
-  &__container {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  background-color: $black-color;
+  color: #fff;
+  padding: 20px 0;
+
+  &-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    padding: 0 80px;
   }
-  &__contacts {
+
+  .contacts {
     display: flex;
     align-items: center;
     gap: 40px;
+
     a {
       font-family: "Roboto", sans-serif;
       @include text-styles(18px, 300, $white-color);
       text-decoration: underline;
     }
-    &-mail {
+
+    &__mail {
       display: flex;
       align-items: center;
+
       &:before {
         content: "";
         width: 24px;
@@ -43,9 +77,11 @@ a {
         margin-right: 10px;
       }
     }
-    &-phone {
+
+    &__phone {
       display: flex;
       align-items: center;
+
       &:before {
         content: "";
         width: 24px;
@@ -55,13 +91,124 @@ a {
       }
     }
   }
-  &__social {
+
+  .social {
+    &-list {
+      display: flex;
+      gap: 40px;
+
+      &__item a svg {
+        fill: #A1A1A1;
+
+        &:hover {
+          fill: $white-color;
+        }
+      }
+    }
+  }
+}
+
+.subheader {
+  &-container {
     display: flex;
-    gap: 40px;
-    &-link svg {
-      fill: #A1A1A1;
-      &:hover {
-        fill: $white-color;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+  }
+
+  .logo img {
+    min-height: 45px;
+  }
+
+  .nav {
+    &-list {
+      display: flex;
+      gap: 40px;
+
+      &__item a {
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        @include text-styles(17px, 800, $white-color);
+      }
+    }
+  }
+}
+
+.hero {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+
+    p {
+      font-family: 'Open Sans', sans-serif;
+      @include text-styles(18px, 300, $white-color);
+      letter-spacing: 2px;
+      margin: 20px 0;
+    }
+
+    .search-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      input {
+        width: 470px;
+        height: 76px;
+        padding: 20px 35px;
+        border: none;
+        border-radius: 10px 0 0 10px;
+        font-family: 'Open Sans', sans-serif;
+        @include text-styles(19px, 400, #777777);
+      }
+
+      button {
+        border: none;
+        background-color: $black-color;
+        color: $white-color;
+        border-radius: 0 10px 10px 0;
+        width: 90px;
+        height: 77px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+}
+
+.features {
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 70px;
+    padding: 130px 200px;
+
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+
+      img {
+        height: 50px;
+      }
+
+      h3 {
+        @include text-styles(22px, 800, $white-color);
+      }
+
+      p {
+        @include text-styles(16px, 400, $white-color);
+        line-height: 30px;
       }
     }
   }
