@@ -22,6 +22,20 @@ h2 {
   letter-spacing: 7px;
 }
 
+h3 {
+  @include text-styles(22px, 800, $white-color);
+}
+
+h4 {
+  @include text-styles(24px, 800, $white-color);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  appearance: none;
+}
+
 .container {
   width: 100%;
   max-width: 1920px;
@@ -30,13 +44,17 @@ h2 {
 }
 
 .bg-container {
-  background-image: url("../../assets/img/background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 1520px;
+  min-height: 100vh;
   width: 100%;
-  margin: 0 auto;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0) 1520px,
+      rgba(0,0,0,0.7) 1580px,
+      $black-color 1620px
+    ),
+    url("../../assets/img/background.jpg") top center/cover no-repeat;
+    margin: 0 auto;
 }
 
 .header {
@@ -170,7 +188,6 @@ h2 {
         border-radius: 0 10px 10px 0;
         width: 90px;
         height: 77px;
-        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -202,13 +219,182 @@ h2 {
         height: 50px;
       }
 
-      h3 {
-        @include text-styles(22px, 800, $white-color);
-      }
-
       p {
         @include text-styles(16px, 400, $white-color);
         line-height: 30px;
+      }
+    }
+  }
+}
+
+.choice {
+  &-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 130px;
+    padding: 130px 200px;
+
+    &__title {
+      @include text-styles(48px, 400, $white-color);
+      max-width: 500px;
+    }
+
+    &__text {
+      font-family: 'Open Sans', sans-serif;
+      @include text-styles(17px, 400, $white-color);
+      line-height: 170%;
+      max-width: 500px;
+    }
+  }
+
+  &-content {
+    &__tabs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding: 60px 200px;
+    }
+
+    &__tab {
+      font-family: 'Open Sans', sans-serif;
+      @include text-styles(14px, 600, $white-color);
+      padding: 5px 13px;
+      border-radius: 8px;
+      background-color: $black-color;
+      transition: background 0.2s, color 0.2s;
+      color: $white-color;
+      
+      &:hover {
+        background: $yellow-color;
+      }
+      
+      &.active {
+        background-color: $yellow-color;
+        color: $black-color;
+      }
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      padding: 0 200px;
+    }
+
+    &__card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $black-color;
+      max-width: 320px;
+      border-radius: 10px;
+
+      .favorite {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        background: none;
+        border: none;
+        padding: 0;
+        z-index: 2;
+        transition: transform 0.15s;
+
+        svg {
+          display: block;
+          transition: filter 0.2s;
+          filter: drop-shadow(0 2px 6px rgba(0,0,0,0.15));
+        }
+
+        &:hover {
+          transform: scale(1.1);
+          svg path {
+            stroke: $white-color;
+            fill: $white-color;
+          }
+        }
+
+        &.active svg path {
+          fill: $white-color;
+          stroke: $white-color;
+        }
+
+        &:not(.active) svg path {
+          fill: none;
+          stroke: $white-color;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+
+      &-desc {
+        padding: 0 15px 20px 15px;
+
+        h4 {
+          font-family: 'Arsenal', sans-serif;
+          line-height: 25px;
+          text-align: center;
+          margin: 38px 0 18px 0;
+        }
+
+        p {
+          font-family: 'Open Sans', sans-serif;
+          @include text-styles(15px, 400, $lilac-color);
+          line-height: 25px;
+          margin: 30px 10px;
+        }
+
+        button {
+          width: 100%;
+          height: 82px;
+          background-color: $blue-color;
+          font-family: 'Open Sans', sans-serif;
+          @include text-styles(16px, 600, $white-color);
+          border-radius: 10px;
+          transition: background 0.2s;
+
+          &:hover {
+            background-color: darken($yellow-color, 10%);
+            color: $black-color;
+          }
+        }
+      }
+
+      &-rating {
+        display: flex;
+        gap: 4px;
+
+        .star {
+          font-size: 20px;
+          color: #FFD600;
+          opacity: 0.4;
+          
+          &.filled {
+            opacity: 1;
+          }
+        }
+      }
+
+      &-price {
+        font-family: 'DM Serif Display', serif;
+        @include text-styles(48px, 400, $white-color);
+        text-align: end;
+
+        old-price {
+          @include text-styles(22px, 400, #B1B4B9);
+          text-decoration: line-through;
+        }
+
+        span {
+          @include text-styles(18px, 400, $white-color);
+        }
       }
     }
   }
