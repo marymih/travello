@@ -249,6 +249,11 @@ button {
   }
 
   &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 230px;
+
     &__tabs {
       display: flex;
       justify-content: center;
@@ -280,7 +285,7 @@ button {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 30px;
-      padding: 0 200px;
+      padding: 0 200px 80px 200px;
     }
 
     &__card {
@@ -395,6 +400,21 @@ button {
         span {
           @include text-styles(18px, 400, $white-color);
         }
+      }
+    }
+    &__btn {
+      width: 150px;
+      height: 45px;
+      font-family: 'Roboto', sans-serif;
+      @include text-styles(15px, 900, $white-color);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background-color: $black-color;
+      border: $white-color 2px solid;
+
+      &:hover {
+        background-color: $white-color;
+        color: $black-color;
       }
     }
   }
