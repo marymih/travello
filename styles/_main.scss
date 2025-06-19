@@ -422,7 +422,7 @@ button {
 
 .reviews {
   padding-bottom: 300px;
-  
+
   &-slider {
     display: flex;
     justify-content: center;
@@ -479,5 +479,43 @@ button {
         }
       }
     }
+  }
+}
+
+.highlights {
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 200px 130px 200px;
+  }
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 170px;
+
+    img {
+      max-width: 500px;
+    }
+    &__desc {
+      display: flex;
+      flex-direction: column;
+      max-width: 500px;
+    }
+
+    &__title {
+      @include text-styles(48px, 400, $white-color);
+      font-family: 'Arsenal', sans-serif;
+    }
+
+    &__text {
+      font-family: 'Open Sans', sans-serif;
+      @include text-styles(17px, 400, $lilac-color);
+      line-height: 170%;
+    }
+
   }
 }
