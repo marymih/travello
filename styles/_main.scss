@@ -552,6 +552,7 @@ button {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
+    padding: 0 200px 130px 200px;
   }
 
   &-card {
@@ -638,5 +639,40 @@ button {
         color: $black-color;
       }
     }
+  }
+}
+
+.info {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 100px;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__mail {
+    font-family: 'Roboto', sans-serif;
+    @include text-styles(24px, 400, $lilac-color);
+    line-height: 30px;
+    text-decoration: underline;
+    margin-bottom: 10px;
+  }
+
+  &__address {
+    font-family: 'Roboto', sans-serif;
+    @include text-styles(14px, 400, $lilac-color);
+  }
+
+  &__phone {
+    font-family: 'Roboto', sans-serif;
+    @include text-styles(14px, 400, $lilac-color);
   }
 }
