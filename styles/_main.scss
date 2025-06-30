@@ -539,15 +539,16 @@ button {
   }
 }
 
-.prices {
-  background-color: $dark-blue-color;
+.bg-map {
   background-image: url("../../assets/img/footer-bg.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   position: relative;
   z-index: 0;
+}
 
+.prices {
   &-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -689,5 +690,24 @@ button {
         }
       }
     }
+  }
+}
+
+.footer {
+  &-container::before {
+    content: "";
+    display: block;
+    width: 80%;
+    height: 1px;
+    background-color: $blue-color;
+    opacity: 0.4;
+    margin: 0 auto;
+  }
+  &-content {
+    @include text-styles(17px, 400, $lilac-color);
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding: 45px 200px 70px 200px;
   }
 }
